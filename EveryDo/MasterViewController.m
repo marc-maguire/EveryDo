@@ -126,13 +126,12 @@
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewRowAction *button = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    UITableViewRowAction *button = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         
             [self.objects removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
                                     }];
-    button.backgroundColor = [UIColor redColor]; //arbitrary color
     
     //can we change back to uncomplete?
     UITableViewRowAction *button2;
@@ -160,7 +159,6 @@
     
     button2.backgroundColor = [UIColor greenColor]; //arbitrary color
     
-
     
     return @[button, button2]; //array with all the buttons you want. 1,2,3, etc...
 
