@@ -22,6 +22,8 @@
     
     
     NSDictionary* attributes = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+    //if wanted colour strikethrough : NSStrikethroughColorAttributeName: [UIColor redColor]
+    
     NSAttributedString* attributedTitle = [[NSAttributedString alloc] initWithString:self.toDo.title attributes:attributes];
     NSAttributedString* attributedDescription = [[NSAttributedString alloc] initWithString:self.toDo.description attributes:attributes];
     NSAttributedString* attributedPriorityLevel = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu",self.toDo.priorityLevel] attributes:attributes];
