@@ -27,12 +27,6 @@
     return _objects;
 }
 
--(void)saveToDo:(ToDo *)toDo {
-    
-    [self.objects addObject:toDo];
-    [self.tableView reloadData];
-    
-}
 //make this conform to delegatemethod from detailVC and add update button.
 //cancel button on form to dismiss
 //save button trigger this delegate method
@@ -73,15 +67,14 @@
 }
 
 
-//- (void)insertNewObject:(id)sender { //can change to take ToDos
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    [self.objects insertObject:[[ToDo alloc]init] atIndex:0]; //going to inset an empty object..
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
 
+
+-(void)saveToDo:(ToDo *)toDo {
+    
+    [self.objects addObject:toDo];
+    [self.tableView reloadData];
+    
+}
 
 
 #pragma mark - Segues
@@ -140,15 +133,28 @@
     return YES;
 }
 
-//
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-////        [self.objects removeObjectAtIndex:indexPath.row];
-////        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//- (void)insertNewObject:(id)sender { //can change to take ToDos
+//    if (!self.objects) {
+//        self.objects = [[NSMutableArray alloc] init];
 //    }
+//    [self.objects insertObject:[[ToDo alloc]init] atIndex:0]; //going to inset an empty object..
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 //}
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    ToDo *toDo = self.objects[sourceIndexPath.row];
+    [self.objects removeObjectAtIndex:sourceIndexPath.row];
+    [self.objects insertObject:toDo atIndex:destinationIndexPath.row];
+    
+    
+}
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     
