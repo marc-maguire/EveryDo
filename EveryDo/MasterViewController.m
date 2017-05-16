@@ -133,14 +133,6 @@
     return YES;
 }
 
-//- (void)insertNewObject:(id)sender { //can change to take ToDos
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    [self.objects insertObject:[[ToDo alloc]init] atIndex:0]; //going to inset an empty object..
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
 
 -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -149,10 +141,16 @@
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
-    ToDo *toDo = self.objects[sourceIndexPath.row];
-    [self.objects removeObjectAtIndex:sourceIndexPath.row];
-    [self.objects insertObject:toDo atIndex:destinationIndexPath.row];
+    ToDo *toDo = self.objects[sourceIndexPath.row]; //get a reference to the object you are clicking on at the sourceIndexPath.row
     
+    if (destinationIndexPath.row == sourceIndexPath.row) {
+        //do nothing, no move needed
+        return;
+    } else {
+        
+        [self.objects removeObjectAtIndex:sourceIndexPath.row]; //remove it (you still have your copy from above
+        [self.objects insertObject:toDo atIndex:destinationIndexPath.row]; //insert your copy at the destination
+    }
     
 }
 
