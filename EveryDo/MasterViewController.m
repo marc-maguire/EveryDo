@@ -163,7 +163,6 @@
         
                                     }];
     
-    //can we change back to uncomplete?
     UITableViewRowAction *button2;
     if (self.objects[indexPath.row].isCompleted) {
         

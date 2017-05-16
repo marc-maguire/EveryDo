@@ -15,7 +15,6 @@
     self.title.text = self.toDo.title;
     self.descriptionPreview.text = self.toDo.toDoDescription;
     self.priorityLevel.text = [NSString stringWithFormat:@"%lu",self.toDo.priorityLevel];
-    
 }
 
 -(void)updateDisplayTaskComplete {
