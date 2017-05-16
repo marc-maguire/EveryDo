@@ -135,22 +135,35 @@
     button.backgroundColor = [UIColor redColor]; //arbitrary color
     
     //can we change back to uncomplete?
-    
-    UITableViewRowAction *button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Complete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    UITableViewRowAction *button2;
+    if (self.objects[indexPath.row].isCompleted) {
         
-        if (self.objects[indexPath.row].isCompleted) {
+        button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Uncomplete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+            
+     
             self.objects[indexPath.row].isCompleted = NO;
-           
-        } else {
+        
+            [self.tableView reloadData];
+        }];
+
+        
+    } else {
+    
+    button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Complete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
             
             self.objects[indexPath.row].isCompleted = YES;
-        }
-              [self.tableView reloadData];
+    
+            [self.tableView reloadData];
+        
     }];
+    }
+    
     button2.backgroundColor = [UIColor greenColor]; //arbitrary color
     
-    return @[button, button2]; //array with all the buttons you want. 1,2,3, etc...
+
     
+    return @[button, button2]; //array with all the buttons you want. 1,2,3, etc...
+
 }
 
 
