@@ -67,8 +67,6 @@
 		9283D7FA1ECB4DCD00F5F8E5 /* EveryDo */ = {
 			isa = PBXGroup;
 			children = (
-				9283D7FE1ECB4DCD00F5F8E5 /* AppDelegate.h */,
-				9283D7FF1ECB4DCD00F5F8E5 /* AppDelegate.m */,
 				9283D8011ECB4DCD00F5F8E5 /* MasterViewController.h */,
 				9283D8021ECB4DCD00F5F8E5 /* MasterViewController.m */,
 				9283D8041ECB4DCD00F5F8E5 /* DetailViewController.h */,
@@ -89,6 +87,8 @@
 		9283D7FB1ECB4DCD00F5F8E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9283D7FE1ECB4DCD00F5F8E5 /* AppDelegate.h */,
+				9283D7FF1ECB4DCD00F5F8E5 /* AppDelegate.m */,
 				9283D7FC1ECB4DCD00F5F8E5 /* main.m */,
 			);
 			name = "Supporting Files";

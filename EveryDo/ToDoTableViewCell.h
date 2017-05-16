@@ -16,7 +16,8 @@
 @property (nonatomic) IBOutlet UILabel *descriptionPreview;
 @property (nonatomic) IBOutlet UILabel *priorityLevel;
 
--(void)updateDisplay;
+-(void)updateDisplayTaskNotComplete;
+-(void)updateDisplayTaskComplete;
 
 
 

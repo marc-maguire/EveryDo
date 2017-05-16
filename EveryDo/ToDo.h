@@ -12,9 +12,9 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *toDoDescription;
-@property (nonatomic) NSUInteger *priorityLevel;
+@property (nonatomic) NSUInteger priorityLevel;
 @property (nonatomic) BOOL isCompleted;
 
-- (instancetype)initWithTitle:(NSString *)title andDescription:(NSString *)description andPriorityNumber:(NSUInteger *)priorityNumber;
+- (instancetype)initWithTitle:(NSString *)title andDescription:(NSString *)description andPriorityNumber:(NSUInteger)priorityNumber;
 
 @end

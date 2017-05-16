@@ -10,14 +10,31 @@
 
 @implementation ToDoTableViewCell
 
--(void)updateDisplay {
+-(void)updateDisplayTaskNotComplete {
     
-    self.title = self.toDo.title;
-    self.descriptionPreview = self.toDo.description;
-    self.priorityLevel = self.toDo.priorityLevel;
+    self.title.text = self.toDo.title;
+    self.descriptionPreview.text = self.toDo.description;
+    self.priorityLevel.text = [NSString stringWithFormat:@"%lu",self.toDo.priorityLevel];
     
 }
 
+-(void)updateDisplayTaskComplete {
+    
+    
+    NSDictionary* attributes = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+    NSAttributedString* attributedTitle = [[NSAttributedString alloc] initWithString:self.toDo.title attributes:attributes];
+    NSAttributedString* attributedDescription = [[NSAttributedString alloc] initWithString:self.toDo.description attributes:attributes];
+    NSAttributedString* attributedPriorityLevel = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu",self.toDo.priorityLevel] attributes:attributes];
+
+    self.title.text = attributedTitle;
+    self.descriptionPreview.text = attributedDescription;
+    self.priorityLevel.text = attributedPriorityLevel;
+
+
+    
+    
+    
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
