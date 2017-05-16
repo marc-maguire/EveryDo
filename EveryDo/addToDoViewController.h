@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToDo.h"
+
+@protocol addToDoDelegate <NSObject>
+
+- (void)saveToDo:(ToDo *)toDo;
+
+@end
 
 @interface addToDoViewController : UIViewController
+
+@property (nonatomic) id <addToDoDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *priorityTextField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+
+
 
 @end

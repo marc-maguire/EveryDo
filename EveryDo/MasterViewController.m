@@ -27,6 +27,12 @@
     return _objects;
 }
 
+-(void)saveToDo:(ToDo *)toDo {
+    
+    [self.objects addObject:toDo];
+    [self.tableView reloadData];
+    
+}
 //make this conform to delegatemethod from detailVC and add update button.
 //cancel button on form to dismiss
 //save button trigger this delegate method
@@ -86,6 +92,10 @@
         ToDo *object = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
         [controller setDetailItem:object];
+    } else if ([[segue identifier] isEqualToString:@"add"]){
+        addToDoViewController *atdvc = [segue destinationViewController];
+        atdvc.delegate = self;
+    
     }
 }
 
