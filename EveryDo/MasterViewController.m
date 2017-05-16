@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ToDo.h"
+#import "ToDoTableViewCell.h"
 
 @interface MasterViewController ()
 

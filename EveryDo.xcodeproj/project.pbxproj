@@ -14,6 +14,8 @@
 		9283D8091ECB4DCD00F5F8E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9283D8071ECB4DCD00F5F8E5 /* Main.storyboard */; };
 		9283D80B1ECB4DCD00F5F8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9283D80A1ECB4DCD00F5F8E5 /* Assets.xcassets */; };
 		9283D80E1ECB4DCD00F5F8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9283D80C1ECB4DCD00F5F8E5 /* LaunchScreen.storyboard */; };
+		9283D8171ECB4EE900F5F8E5 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283D8161ECB4EE900F5F8E5 /* ToDo.m */; };
+		9283D81A1ECB536800F5F8E5 /* ToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283D8191ECB536800F5F8E5 /* ToDoTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		9283D80A1ECB4DCD00F5F8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9283D80D1ECB4DCD00F5F8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9283D80F1ECB4DCD00F5F8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9283D8151ECB4EE900F5F8E5 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
+		9283D8161ECB4EE900F5F8E5 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
+		9283D8181ECB536800F5F8E5 /* ToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewCell.h; sourceTree = "<group>"; };
+		9283D8191ECB536800F5F8E5 /* ToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				9283D8021ECB4DCD00F5F8E5 /* MasterViewController.m */,
 				9283D8041ECB4DCD00F5F8E5 /* DetailViewController.h */,
 				9283D8051ECB4DCD00F5F8E5 /* DetailViewController.m */,
+				9283D8151ECB4EE900F5F8E5 /* ToDo.h */,
+				9283D8161ECB4EE900F5F8E5 /* ToDo.m */,
+				9283D8181ECB536800F5F8E5 /* ToDoTableViewCell.h */,
+				9283D8191ECB536800F5F8E5 /* ToDoTableViewCell.m */,
 				9283D8071ECB4DCD00F5F8E5 /* Main.storyboard */,
 				9283D80A1ECB4DCD00F5F8E5 /* Assets.xcassets */,
 				9283D80C1ECB4DCD00F5F8E5 /* LaunchScreen.storyboard */,
@@ -155,8 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9283D8171ECB4EE900F5F8E5 /* ToDo.m in Sources */,
 				9283D8001ECB4DCD00F5F8E5 /* AppDelegate.m in Sources */,
 				9283D8031ECB4DCD00F5F8E5 /* MasterViewController.m in Sources */,
+				9283D81A1ECB536800F5F8E5 /* ToDoTableViewCell.m in Sources */,
 				9283D7FD1ECB4DCD00F5F8E5 /* main.m in Sources */,
 				9283D8061ECB4DCD00F5F8E5 /* DetailViewController.m in Sources */,
 			);
