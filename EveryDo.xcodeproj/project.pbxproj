@@ -16,6 +16,7 @@
 		9283D80E1ECB4DCD00F5F8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9283D80C1ECB4DCD00F5F8E5 /* LaunchScreen.storyboard */; };
 		9283D8171ECB4EE900F5F8E5 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283D8161ECB4EE900F5F8E5 /* ToDo.m */; };
 		9283D81A1ECB536800F5F8E5 /* ToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283D8191ECB536800F5F8E5 /* ToDoTableViewCell.m */; };
+		9283D81D1ECB91C800F5F8E5 /* addToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283D81C1ECB91C800F5F8E5 /* addToDoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		9283D8161ECB4EE900F5F8E5 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
 		9283D8181ECB536800F5F8E5 /* ToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewCell.h; sourceTree = "<group>"; };
 		9283D8191ECB536800F5F8E5 /* ToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewCell.m; sourceTree = "<group>"; };
+		9283D81B1ECB91C800F5F8E5 /* addToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addToDoViewController.h; sourceTree = "<group>"; };
+		9283D81C1ECB91C800F5F8E5 /* addToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addToDoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				9283D8021ECB4DCD00F5F8E5 /* MasterViewController.m */,
 				9283D8041ECB4DCD00F5F8E5 /* DetailViewController.h */,
 				9283D8051ECB4DCD00F5F8E5 /* DetailViewController.m */,
+				9283D81B1ECB91C800F5F8E5 /* addToDoViewController.h */,
+				9283D81C1ECB91C800F5F8E5 /* addToDoViewController.m */,
 				9283D8151ECB4EE900F5F8E5 /* ToDo.h */,
 				9283D8161ECB4EE900F5F8E5 /* ToDo.m */,
 				9283D8181ECB536800F5F8E5 /* ToDoTableViewCell.h */,
@@ -165,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9283D81D1ECB91C800F5F8E5 /* addToDoViewController.m in Sources */,
 				9283D8171ECB4EE900F5F8E5 /* ToDo.m in Sources */,
 				9283D8001ECB4DCD00F5F8E5 /* AppDelegate.m in Sources */,
 				9283D8031ECB4DCD00F5F8E5 /* MasterViewController.m in Sources */,

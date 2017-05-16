@@ -13,20 +13,35 @@
 
 @interface MasterViewController ()
 
-@property NSMutableArray <ToDo *> *objects;
+@property (nonatomic) NSMutableArray <ToDo *> *objects;
 @end
 
 @implementation MasterViewController
+
+-(NSMutableArray<ToDo *> *)objects {
+    
+    if (_objects == nil) {
+        _objects = [[NSMutableArray <ToDo *> alloc]init];
+    }
+    
+    return _objects;
+}
+
+//make this conform to delegatemethod from detailVC and add update button.
+//cancel button on form to dismiss
+//save button trigger this delegate method
+//set the delegate in the prepare for segue
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     
-    self.objects = [[NSMutableArray alloc]init];
+    
     ToDo *item1 = [[ToDo alloc]initWithTitle:@"Test1" andDescription:@"Test description1" andPriorityNumber:1];
     ToDo *item2 = [[ToDo alloc]initWithTitle:@"Test2" andDescription:@"Test description2" andPriorityNumber:2];
     ToDo *item3 = [[ToDo alloc]initWithTitle:@"Test3" andDescription:@"Test description3" andPriorityNumber:3];
@@ -52,14 +67,15 @@
 }
 
 
-- (void)insertNewObject:(id)sender { //can change to take ToDos
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[[ToDo alloc]init] atIndex:0]; //going to inset an empty object..
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (void)insertNewObject:(id)sender { //can change to take ToDos
+//    if (!self.objects) {
+//        self.objects = [[NSMutableArray alloc] init];
+//    }
+//    [self.objects insertObject:[[ToDo alloc]init] atIndex:0]; //going to inset an empty object..
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
+
 
 
 #pragma mark - Segues
