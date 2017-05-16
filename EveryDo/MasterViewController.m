@@ -25,6 +25,20 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    self.objects = [[NSMutableArray alloc]init];
+    ToDo *item1 = [[ToDo alloc]initWithTitle:@"Test1" andDescription:@"Test description1" andPriorityNumber:1];
+    ToDo *item2 = [[ToDo alloc]initWithTitle:@"Test2" andDescription:@"Test description2" andPriorityNumber:2];
+    ToDo *item3 = [[ToDo alloc]initWithTitle:@"Test3" andDescription:@"Test description3" andPriorityNumber:3];
+    ToDo *item4 = [[ToDo alloc]initWithTitle:@"Test4" andDescription:@"Test description4" andPriorityNumber:4];
+    [self.objects addObject:item1];
+    [self.objects addObject:item2];
+    [self.objects addObject:item3];
+    [self.objects addObject:item4];
+    
+    [self.tableView reloadData];
+    
+    
 }
 
 
@@ -38,26 +52,26 @@
 }
 
 
-//- (void)insertNewObject:(id)sender {
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    [self.objects insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
+- (void)insertNewObject:(id)sender { //can change to take ToDos
+    if (!self.objects) {
+        self.objects = [[NSMutableArray alloc] init];
+    }
+    [self.objects insertObject:[[ToDo alloc]init] atIndex:0]; //going to inset an empty object..
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
 
 #pragma mark - Segues
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.objects[indexPath.row];
-//        DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-//        [controller setDetailItem:object];
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ToDo *object = self.objects[indexPath.row];
+        DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
+        [controller setDetailItem:object];
+    }
+}
 
 
 #pragma mark - Table View
@@ -78,19 +92,15 @@
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.toDo = [self.objects objectAtIndex:indexPath.row];
+ 
     
     if (cell.toDo.isCompleted == YES) {
-        
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        
-        NSDictionary* attributes = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
-        NSAttributedString* attributedString = [[NSAttributedString alloc] initWithString:toDoItem.itemName attributes:attributes];
-        
-        cell.textLabel.attributedText = attributedString;
+        [cell updateDisplayTaskComplete];
         
     } else {
         
-        [cell updateDisplay];
+        [cell updateDisplayTaskNotComplete];
         
         
     }

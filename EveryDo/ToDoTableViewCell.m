@@ -13,7 +13,7 @@
 -(void)updateDisplayTaskNotComplete {
     
     self.title.text = self.toDo.title;
-    self.descriptionPreview.text = self.toDo.description;
+    self.descriptionPreview.text = self.toDo.toDoDescription;
     self.priorityLevel.text = [NSString stringWithFormat:@"%lu",self.toDo.priorityLevel];
     
 }
@@ -26,9 +26,9 @@
     NSAttributedString* attributedDescription = [[NSAttributedString alloc] initWithString:self.toDo.description attributes:attributes];
     NSAttributedString* attributedPriorityLevel = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu",self.toDo.priorityLevel] attributes:attributes];
 
-    self.title.text = attributedTitle;
-    self.descriptionPreview.text = attributedDescription;
-    self.priorityLevel.text = attributedPriorityLevel;
+    self.title.attributedText = attributedTitle;
+    self.descriptionPreview.attributedText = attributedDescription;
+    self.priorityLevel.attributedText = attributedPriorityLevel;
 
 
     
