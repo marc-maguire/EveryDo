@@ -100,6 +100,7 @@
         
     } else {
         
+        cell.accessoryType = UITableViewCellAccessoryNone;
         [cell updateDisplayTaskNotComplete];
         
         
@@ -113,14 +114,43 @@
     return YES;
 }
 
+//
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+////        [self.objects removeObjectAtIndex:indexPath.row];
+////        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//    }
+//}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *button = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        
+            [self.objects removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+                                    }];
+    button.backgroundColor = [UIColor redColor]; //arbitrary color
+    
+    //can we change back to uncomplete?
+    
+    UITableViewRowAction *button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Complete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        
+        if (self.objects[indexPath.row].isCompleted) {
+            self.objects[indexPath.row].isCompleted = NO;
+           
+        } else {
+            
+            self.objects[indexPath.row].isCompleted = YES;
+        }
+              [self.tableView reloadData];
+    }];
+    button2.backgroundColor = [UIColor greenColor]; //arbitrary color
+    
+    return @[button, button2]; //array with all the buttons you want. 1,2,3, etc...
+    
 }
 
 
